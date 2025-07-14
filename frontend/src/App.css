@@ -1,0 +1,76 @@
+.Log_box{
+  width: 27rem;
+  height: 26rem;
+  border: 2px solid #000;
+  margin-left: 25rem;
+  margin-top: 6rem;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 18px 20px 22px 24px grey;
+}
+.sign_head{
+  height: 4.5rem;
+  border-bottom: 2px solid #000;
+  background-image: linear-gradient(to right,rgb(10, 10, 79),rgb(107, 20, 20));
+  text-align: center;
+}
+.write{
+  font-size: 3rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: #eee;
+  text-decoration: underline;
+  font-style: bold;
+  text-transform: uppercase;
+}
+.det_box{
+  /* border: 2px solid #000; */
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 40px;
+}
+.write_1{
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: #000;
+  text-decoration: underline;
+  font-style: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+.name{
+  width: 12rem;
+  height: 2rem;
+}
+.Email{
+  width: 12rem;
+  height: 2rem; 
+}
+.password{
+  width: 12rem;
+  height: 2rem;
+}
+.sub_but{
+  width: 12rem;
+  height: 2rem;
+  margin-top: 0.8rem;
+  background-color: purple;
+  border-radius: 10px;
+}
+.but_wr{
+  font-size: 1.2rem;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-style: bold;
+  color: #eee;
+}
+.write_2{
+  font-size: 1rem;
+  color: #000;
+  text-decoration: underline;
+  font-style: bold;
+}
