@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import menu from '../img/menu_ph.png';
+import amazon from '../img/Amazon-Logo.png';
+import cart from '../img/cart_1.jpg';
+import profile from '../img/profile.jpg';
+import Header from './header.js';
 
 function Home() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const userId = localStorage.getItem("userId"); // Make sure this is set after login
+  const Navigate=useNavigate();
 
   // Fetch all products
   const fetchProducts = async () => {
@@ -21,7 +28,7 @@ function Home() {
   };
 
   // Fetch user's cart
-  const fetchCart = async () => {
+  /* const fetchCart = async () => {
     if (!userId) return;
     try {
       const res = await fetch(`http://localhost:8080/cart/${userId}`);
@@ -34,7 +41,7 @@ function Home() {
     } catch (err) {
       console.error("Error fetching cart:", err);
     }
-  };
+  }; */
 
   // Add product to cart
   const addToCart = async (product) => {
@@ -64,7 +71,8 @@ function Home() {
 
       if (result.success) {
         alert("Added to cart!");
-        fetchCart();
+        //fetchCart();
+        //Navigate('/cart');
       } else {
         alert("Failed to add to cart.");
       }
@@ -75,7 +83,7 @@ function Home() {
 
   useEffect(() => {
     fetchProducts();
-    fetchCart();
+    //fetchCart();
   }, []);
  useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -84,7 +92,24 @@ function Home() {
 
 
   return (
-    <div>
+    <div className="item_cont">
+      <section className="head_cont">
+        <div className="tempt">
+          <button className="menu">
+            <img src={menu} alt="menu" title="menu" height={20} width={20}/>
+          </button>
+          <img src={amazon} className="logo" alt="logo" title="logo" height={30} width={30}/>
+        </div>
+        <Header/>
+        <div className="profile">
+          <button className="cart_img" onClick={()=>Navigate('/cart')}>
+            <img src={cart} className="cart_image" alt="cart" title="cart" height={20} width={20}/>
+          </button>
+          <button className="cart_img">
+            <img src={profile} className="cart_image" alt="acc" title="acc" height={20} width={20}/>
+          </button>
+        </div>
+      </section>
       <h2>All Products</h2>
       <div className="product-list" style={{ display: "flex", flexWrap: "wrap" }}>
         {products.map((prod) => (
@@ -107,14 +132,14 @@ function Home() {
       </div>
       <div>Check console for userId</div>;
 
-      <h2>Your Cart</h2>
+      {/* <h2>Your Cart</h2>
       <div className="cart">
         {cartItems.map((item) => (
           <div key={item._id}>
             {item.productName} - ₹{item.finalPrice} (Qty: {item.quantity})
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

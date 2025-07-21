@@ -6,7 +6,8 @@ function AddProduct() {
     const [product, setProduct] = useState({
         brandName: '',
         productName: '',
-        rate: ''
+        rate: '',
+        type:''
     });
 
     const navigate = useNavigate();
@@ -21,9 +22,9 @@ function AddProduct() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { brandName, productName, rate } = product;
+        const { brandName, productName, rate, type} = product;
 
-        if (!brandName || !productName || !rate) {
+        if (!brandName || !productName || !rate|| !type) {
             return handleError("All fields are required");
         }
 
@@ -64,6 +65,15 @@ function AddProduct() {
 
                     <span className="write_1">Rate (₹)</span>
                     <input onChange={handleChange} name="rate" type="number" value={product.rate} placeholder="Enter rate" />
+
+                    <span className="write_1">Type</span>
+                    <input
+                       onChange={handleChange}
+                        name="type"
+                       value={product.type}
+                        placeholder="Enter type (e.g., bag, mobile, fridge)"
+                    />
+
 
                     <button type="submit" className="sub_but"><span className="but_wr">Add Product</span></button>
                 </div>

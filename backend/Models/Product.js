@@ -13,6 +13,12 @@ const ProductSchema = new Schema({
     rate: {
         type: Number,
         required: true
+    },
+    type: {
+      type: String, // <-- NEW FIELD
+      required: true,
+      lowercase: true,
+      trim: true,
     }
 });
 
