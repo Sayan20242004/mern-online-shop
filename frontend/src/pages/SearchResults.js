@@ -12,7 +12,7 @@ function SearchResults() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://localhost:8080/product1/all");
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/product1/all`);
         const data = await res.json();
         if (data.success) {
           const filtered = data.products.filter((prod) => {

@@ -15,7 +15,7 @@ function Home() {
   // Fetch all products
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:8080/product1/all");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/product1/all`);
       const data = await res.json();
       if (data.success) {
         setProducts(data.products);
@@ -61,7 +61,7 @@ function Home() {
     };
 
     try {
-      const res = await fetch("http://localhost:8080/cart/add", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/cart/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cartItem),

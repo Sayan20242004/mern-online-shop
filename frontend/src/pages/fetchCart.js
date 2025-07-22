@@ -7,7 +7,7 @@ function Cart() {
   const fetchCart = async () => {
     if (!userId) return;
     try {
-      const res = await fetch(`http://localhost:8080/cart/${userId}`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/cart/${userId}`);
       const data = await res.json();
       if (data.success) {
         setCartItems(data.cartItems);
