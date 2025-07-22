@@ -8,7 +8,7 @@ import Header from './header.js';
 
 function Home() {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  //const [cartItems, setCartItems] = useState([]);
   const userId = localStorage.getItem("userId"); // Make sure this is set after login
   const Navigate=useNavigate();
 
