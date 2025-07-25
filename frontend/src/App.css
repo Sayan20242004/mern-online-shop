@@ -1,12 +1,12 @@
 .Log_box {
-  width: 90%;
-  max-width: 400px;
-  margin: 3rem auto;
-  padding: 1rem;
+  width: 27rem;
+  height: 26rem;
   border: 2px solid #000;
+  margin-left: 25rem;
+  margin-top: 6rem;
   border-radius: 40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 18px 20px 22px 24px grey;
 }
 .sign_head{
   height: 4.5rem;
@@ -23,19 +23,20 @@
   text-transform: uppercase;
 }
 .det_box {
-  width: 100%;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 0;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 40px;
 }
 .write_1 {
   font-size: 1rem;
   font-family: 'Times New Roman', Times, serif;
   color: #000;
   text-decoration: underline;
-  font-weight: bold;         /* fixed this */
+  font-style: bold;
   text-transform: uppercase;
   text-align: center;
 }
@@ -43,16 +44,22 @@
   width: 12rem;
   height: 2rem;
 }
-.Email,
-.password,
-.sub_but {
-  width: 100%;
-  max-width: 250px;
-  height: 2.5rem;
-  padding: 0 0.5rem;
-  font-size: 1rem;
+.name {
+  width: 12rem;
+  height: 2rem;
 }
-.but_wr{
+.password {
+  width: 12rem;
+  height: 2rem;
+}
+.sub_but {
+  width: 12rem;
+  height: 2rem;
+  margin-top: 0.8rem;
+  background-color: purple;
+  border-radius: 10px;
+}
+.but_wr {
   font-size: 1.2rem;
   font-family: 'Times New Roman', Times, serif;
   text-decoration: underline;
@@ -64,14 +71,15 @@
   font-size: 1rem;
   color: #000;
   text-decoration: underline;
-  font-weight: bold;         /* fixed this */
+  font-style: bold;
 }
+
 .item_cont{
   border: 2px solid #eee;
 }
-.head_cont{
+.head_cont {
   height: 6.5rem;
-  background-image: linear-gradient(to right,rgb(124, 190, 211),#eee);
+  background-image: linear-gradient(to right, rgb(124, 190, 211), #eee);
   border-bottom: 2px solid #000;
   display: flex;
   justify-content: space-between;
@@ -136,6 +144,9 @@
 
   .sub_but {
     font-size: 1rem;
+    background-color: purple;
+    border-radius: 10px;
+    color: #eee;
   }
 
   .write_1,
