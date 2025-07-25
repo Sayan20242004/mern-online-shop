@@ -1,12 +1,12 @@
-.Log_box{
-  width: 27rem;
-  height: 26rem;
+.Log_box {
+  width: 90%;
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 1rem;
   border: 2px solid #000;
-  margin-left: 25rem;
-  margin-top: 6rem;
   border-radius: 40px;
-  overflow: hidden;
-  box-shadow: 18px 20px 22px 24px grey;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
 }
 .sign_head{
   height: 4.5rem;
@@ -14,30 +14,28 @@
   background-image: linear-gradient(to right,rgb(10, 10, 79),rgb(107, 20, 20));
   text-align: center;
 }
-.write{
+.write {
   font-size: 3rem;
   font-family: 'Times New Roman', Times, serif;
   color: #eee;
   text-decoration: underline;
-  font-style: bold;
+  font-weight: bold;  /* Use this instead of font-style: bold */
   text-transform: uppercase;
 }
-.det_box{
-  /* border: 2px solid #000; */
-  height: 20rem;
+.det_box {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border-radius: 40px;
+  gap: 0.75rem;
+  padding: 1rem 0;
 }
-.write_1{
+.write_1 {
   font-size: 1rem;
   font-family: 'Times New Roman', Times, serif;
   color: #000;
   text-decoration: underline;
-  font-style: bold;
+  font-weight: bold;         /* fixed this */
   text-transform: uppercase;
   text-align: center;
 }
@@ -45,20 +43,14 @@
   width: 12rem;
   height: 2rem;
 }
-.Email{
-  width: 12rem;
-  height: 2rem; 
-}
-.password{
-  width: 12rem;
-  height: 2rem;
-}
-.sub_but{
-  width: 12rem;
-  height: 2rem;
-  margin-top: 0.8rem;
-  background-color: purple;
-  border-radius: 10px;
+.Email,
+.password,
+.sub_but {
+  width: 100%;
+  max-width: 250px;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  font-size: 1rem;
 }
 .but_wr{
   font-size: 1.2rem;
@@ -68,11 +60,11 @@
   font-style: bold;
   color: #eee;
 }
-.write_2{
+.write_2 {
   font-size: 1rem;
   color: #000;
   text-decoration: underline;
-  font-style: bold;
+  font-weight: bold;         /* fixed this */
 }
 .item_cont{
   border: 2px solid #eee;
@@ -130,4 +122,24 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+@media (max-width: 600px) {
+  .Log_box {
+    margin: 2rem auto;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+
+  .write {
+    font-size: 1.5rem;
+  }
+
+  .sub_but {
+    font-size: 1rem;
+  }
+
+  .write_1,
+  .write_2 {
+    font-size: 0.9rem;
+  }
 }
