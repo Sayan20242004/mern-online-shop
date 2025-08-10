@@ -8,11 +8,9 @@ import Header from './header.js';
 
 function Home() {
   const [products, setProducts] = useState([]);
-  //const [cartItems, setCartItems] = useState([]);
-  const userId = localStorage.getItem("userId"); // Make sure this is set after login
-  const Navigate=useNavigate();
+  const userId = localStorage.getItem("userId");
+  const Navigate = useNavigate();
 
-  // Fetch all products
   const fetchProducts = async () => {
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/product1/all`);
@@ -27,23 +25,6 @@ function Home() {
     }
   };
 
-  // Fetch user's cart
-  /* const fetchCart = async () => {
-    if (!userId) return;
-    try {
-      const res = await fetch(`http://localhost:8080/cart/${userId}`);
-      const data = await res.json();
-      if (data.success) {
-        setCartItems(data.cartItems);
-      } else {
-        console.error("Cart fetch failed:", data.message);
-      }
-    } catch (err) {
-      console.error("Error fetching cart:", err);
-    }
-  }; */
-
-  // Add product to cart
   const addToCart = async (product) => {
     if (!userId) {
       alert("Please log in first.");
@@ -71,8 +52,6 @@ function Home() {
 
       if (result.success) {
         alert("Added to cart!");
-        //fetchCart();
-        //Navigate('/cart');
       } else {
         alert("Failed to add to cart.");
       }
@@ -81,35 +60,44 @@ function Home() {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.clear(); // Remove all stored data
+    Navigate("/login");   // Redirect to login page
+  };
+
   useEffect(() => {
     fetchProducts();
-    //fetchCart();
-  }, []);
- useEffect(() => {
-    const userId = localStorage.getItem("userId");
-    console.log("User ID from localStorage inside Home:", userId);
   }, []);
 
+  useEffect(() => {
+    console.log("User ID from localStorage inside Home:", userId);
+  }, []);
 
   return (
     <div className="item_cont">
       <section className="head_cont">
         <div className="tempt">
           <button className="menu">
-            <img src={menu} alt="menu" title="menu" height={20} width={20}/>
+            <img src={menu} alt="menu" title="menu" height={20} width={20} />
           </button>
-          <img src={amazon} className="logo" alt="logo" title="logo" height={30} width={30}/>
+          <img src={amazon} className="logo" alt="logo" title="logo" height={30} width={30} />
         </div>
-        <Header/>
+
+        <Header />
+
         <div className="profile">
-          <button className="cart_img" onClick={()=>Navigate('/cart')}>
-            <img src={cart} className="cart_image" alt="cart" title="cart" height={20} width={20}/>
+          <button className="cart_img" onClick={() => Navigate('/cart')}>
+            <img src={cart} className="cart_image" alt="cart" title="cart" height={20} width={20} />
           </button>
           <button className="cart_img">
-            <img src={profile} className="cart_image" alt="acc" title="acc" height={20} width={20}/>
+            <img src={profile} className="cart_image" alt="acc" title="acc" height={20} width={20} />
+          </button>
+          <button className="logout_btn" onClick={handleLogout}>
+            Logout
           </button>
         </div>
       </section>
+
       <h2>All Products</h2>
       <div className="product-list" style={{ display: "flex", flexWrap: "wrap" }}>
         {products.map((prod) => (
@@ -130,16 +118,8 @@ function Home() {
           </div>
         ))}
       </div>
-      <div>Check console for userId</div>;
 
-      {/* <h2>Your Cart</h2>
-      <div className="cart">
-        {cartItems.map((item) => (
-          <div key={item._id}>
-            {item.productName} - ₹{item.finalPrice} (Qty: {item.quantity})
-          </div>
-        ))}
-      </div> */}
+      <div>Check console for userId</div>
     </div>
   );
 }
