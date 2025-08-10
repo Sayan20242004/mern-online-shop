@@ -24,15 +24,16 @@ function Cart() {
   }, []);
 
   return (
-    <div>
+    <div className="cart-container">
       <h2>Your Cart</h2>
-      <div>
+      <div className="cart-items">
         {cartItems.length === 0 ? (
-          <p>No items in cart.</p>
+          <p className="empty-cart">No items in cart.</p>
         ) : (
           cartItems.map((item) => (
-            <div key={item._id}>
-              {item.productName} - ₹{item.finalPrice} (Qty: {item.quantity})
+            <div className="cart-item" key={item._id}>
+              <p>{item.productName}</p>
+              <p>₹{item.finalPrice} (Qty: {item.quantity})</p>
             </div>
           ))
         )}
