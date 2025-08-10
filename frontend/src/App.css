@@ -245,6 +245,23 @@
   color: #777;
 }
 
+.logout_btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.logout_btn:hover {
+  background-color: #e60000;
+}
+
+
 /* Mobile */
 @media (max-width: 600px) {
   .cart-item {
