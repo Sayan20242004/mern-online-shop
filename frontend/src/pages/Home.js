@@ -61,8 +61,8 @@ function Home() {
   };
 
   const handleLogout = () => {
-    localStorage.clear(); // Remove all stored data
-    Navigate("/login");   // Redirect to login page
+    localStorage.clear();
+    Navigate("/login");
   };
 
   useEffect(() => {
@@ -75,8 +75,8 @@ function Home() {
 
   return (
     <div className="item_cont">
-      <section className="head_cont">
-        <div className="tempt">
+      <section className="head_cont" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="tempt" style={{ display: "flex", alignItems: "center" }}>
           <button className="menu">
             <img src={menu} alt="menu" title="menu" height={20} width={20} />
           </button>
@@ -85,13 +85,15 @@ function Home() {
 
         <Header />
 
-        <div className="profile">
-          <button className="cart_img" onClick={() => Navigate('/cart')}>
-            <img src={cart} className="cart_image" alt="cart" title="cart" height={20} width={20} />
-          </button>
-          <button className="cart_img">
-            <img src={profile} className="cart_image" alt="acc" title="acc" height={20} width={20} />
-          </button>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <div className="profile" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <button className="cart_img" onClick={() => Navigate('/cart')}>
+              <img src={cart} className="cart_image" alt="cart" title="cart" height={20} width={20} />
+            </button>
+            <button className="cart_img">
+              <img src={profile} className="cart_image" alt="acc" title="acc" height={20} width={20} />
+            </button>
+          </div>
           <button className="logout_btn" onClick={handleLogout}>
             Logout
           </button>
